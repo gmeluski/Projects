@@ -11,3 +11,10 @@ def getUserInput():
     return userEntry
 
 
+userInput = getUserInput()
+while representsInteger(userInput) == False:
+    userInput = getUserInput()
+
+pi = 0
+for index in range(int(userInput)):
+    print index
