@@ -11,10 +11,16 @@ def getUserInput():
     return userEntry
 
 
+def piCalculation(number):
+    pi = 0
+    for index in range(number):
+        pi += ((4. / (8. * index + 1.)) - (2. / (8. * index + 4.)) - (1. / (8. * index + 5.)) - (1. / (8. * index + 6.))) / 16. ** index
+    return pi
+
+
 userInput = getUserInput()
 while representsInteger(userInput) == False:
     userInput = getUserInput()
 
-pi = 0
-for index in range(int(userInput)):
-    print index
+print piCalculation(int(userInput))    
+
