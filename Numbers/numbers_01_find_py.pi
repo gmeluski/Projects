@@ -1,26 +1,4 @@
-def representsInteger(numberToTest):
-    try:
-        int(numberToTest)
-        return True
-    except ValueError:
-        return False
+from sympy.mpmath import mp
 
-def getUserInput():
-    print 'Find pi to a certain place. Enter a number:'
-    userEntry = raw_input()
-    return userEntry
-
-
-def piCalculation(number):
-    pi = 0
-    for index in range(number):
-        pi += ((4. / (8. * index + 1.)) - (2. / (8. * index + 4.)) - (1. / (8. * index + 5.)) - (1. / (8. * index + 6.))) / 16. ** index
-    return pi
-
-
-userInput = getUserInput()
-while representsInteger(userInput) == False:
-    userInput = getUserInput()
-
-print piCalculation(int(userInput))    
-
+mp.dps = int(userInput)
+print(mp.pi)
