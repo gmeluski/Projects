@@ -1,3 +1,4 @@
+import helpers
 from sympy.mpmath import mp
 
 def representsInteger(numberToTest):
