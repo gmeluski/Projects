@@ -1,18 +1,7 @@
 import helpers
 from sympy.mpmath import mp
 
-def representsInteger(numberToTest):
-    try:
-        int(numberToTest)
-        return True
-    except ValueError:
-        return False
-
-def getUserInput():
-    print 'Find pi to a certain place. Enter a number:'
-    userEntry = raw_input()
-    return userEntry
-
-userInput = getUserInput()
+userMessage = 'Find pi to the nth place. Enter a number:' 
+userInput = helpers.getUserInput(userMessage)
 mp.dps = int(userInput)
 print(mp.pi)

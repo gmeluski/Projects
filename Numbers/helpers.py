@@ -5,7 +5,7 @@ def representsInteger(numberToTest):
     except ValueError:
         return False
 
-def getUserInput():
-    print 'Find pi to a certain place. Enter a number:'
+def getUserInput(userMessage):
+    print userMessage
     userEntry = raw_input()
     return userEntry
