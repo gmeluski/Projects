@@ -1,10 +1,18 @@
 #The user enters a cost and then the amount of money given. The program will figure out the change and the number of quarters, dimes, nickels, pennies needed for the change.
 
 import operator
+import math
 
 def changeDivision(amountToDivide, coinage): 
-    numberOfCoins = int(amountToDivide / coinage)
-    newChange = amountToDivide % coinage
+    floatDivision = amountToDivide / coinage 
+     
+    if (floatDivision < 1 and floatDivision > 0):
+        numberOfCoins = 1
+        newChange = round(amountToDivide, 2) - round(coinage, 2)
+    else:
+        numberOfCoins = int(floatDivision); 
+        newChange = amountToDivide % coinage
+    
     return [numberOfCoins, newChange]
 
 def findChange(change) :
@@ -26,20 +34,12 @@ def findChange(change) :
     sortedChangeValues.reverse()
 
     for key,value in sortedChangeValues:
-        print key 
+        if (change > 0):
+            returnData = changeDivision(change, value)
+            changeResults[key] = returnData[0]
+            change = returnData[1]
 
-    quarter = 0.25
-    dime = 0.10
-    nickel = 0.05
-    penny = 0.01
-    
-    if (change > quarter) :
-        returnData = changeDivision(change, quarter)
-        changeResults['quarters'] = returnData[0]
-        print returnData[0]
-        print returnData[1]
-
-
+    print changeResults
 
 cost = float(raw_input('Enter the cost: '))
 paid = float(raw_input('Enter the amount given: '))
