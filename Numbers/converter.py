@@ -1,4 +1,13 @@
 class Conversions: 
+    def temperatureFormula(self, farenheit):
+        return (farenheit - 32) * (5./9.)
+
+    def currencyFormula(self, dollars):
+        return dollars * 0.75 
+
+    def massFormula(self, pounds):
+        return pounds / 2.2
+
     conversionPrompts = {
             't': {
                 'prompt': 'Enter a temperature in Farenheit: ',
@@ -13,16 +22,6 @@ class Conversions:
                 'function': massFormula    
             }
     }
-    def temperatureFormula(self, farenheit):
-        return (farenheit - 32) * (5./9.)
-
-    def currencyFormula(self, dollars):
-        return dollars * 0.75 
-
-    def massFormula(self, pounds):
-        dataPoint = returnConversionPrompt('m')
-        return pounds / 2.2
-
 
     def returnConversionPrompt(self, conversionPrompt):
         return float(raw_input(conversionPrompt))
